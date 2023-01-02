@@ -1,0 +1,73 @@
+
+.nav-item {
+font-size: 14px;
+letter-spacing: .2em;
+text-transform: uppercase;
+}
+
+.droupdown-menu {
+font-size: 14px;
+letter-spacing: .2em;
+text-transform: uppercase;
+
+}
+
+.txt {
+
+text-align: center;
+padding-top:10px;
+
+}
+
+.my_bottom_margin {
+
+margin-bottom: 10px;
+}
+
+.card-body h4{
+font-size:14px;
+text-transform:uppercase;
+letter-spacing: .2em
+}
+
+.ftr {
+bottom:0;
+font-size:18px;
+text-align: center;
+padding-top: 10px;
+background-color: #a9a9a9;
+left:100px;
+}
+
+
+.my_search_result {
+padding-top:20px;
+
+}
+/*** cart ***/
+.my_custom_table {
+    min-width:400px;
+    font-size:14px;
+}
+
+.my_custom_thead {
+
+font-weight:normal;
+text_transform:uppercase;
+letter-spacing:.2em;
+background-color:#f8f8fa!important;
+}
+
+.custom_a {
+text-decoration:none;
+}
+
+.custom_icon {
+text_decoration:none;
+color:#868e96 !important;
+}
+
+.my_custom_button {
+margin-top:5px;
+
+}

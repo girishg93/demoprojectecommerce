@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{% if category %}
+    {{category.description| truncatewords:155 }}
+{% else %}
+    Welcome to ABC store where you can buy different items. . .
+{% endif %}
+{% endblock %}
+
+
+{% block title %}
+{% if category %}
+    {{ category.name }} - ABC Store
+{% else %}
+    See our new collections - ABC Store
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+{% if category %}
+<div>
+    <div>
+        <p><a href="{% url 'ecommerceapp:allprodcat' %}">Our Product Collections..</a></p>
+    </div>
+</div>
+{% endif %}
+
+
+<div>
+    {% if category %}
+        <img src="{{ category.image.url }}" alt="{{ category.name }}" width="1300" height="400">
+</div>
+<br>
+<div>
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+</div>
+    {% else %}<br>
+        <div>
+            <img src="{% static 'img/banner.JPG' %}" alt="our products" width="1300" height="400">
+        </div>
+<br>
+<div class="txt">
+    <h1>Our product collection</h1></div>
+    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+{% endif %}
+
+<!-- col-9 col-sm-12 col-md-4  xol-lg-4 -->
+
+<div class="container">
+    <div class="row mx_auto">
+        {% for product in products.object_list %}
+        <div class="my_bottom_margin col-4 ">
+            <div class="card text-center" style="min-width:18rem;">
+                <a href="{{ product.get_url }}"><img class="card-img-top my_image"   src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+
+            <div class="card-body">
+
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.price }}</p>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+        {% if products.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+            <a href="?page={{pg}}" class="btn btn-light btn-bg {% if products.number == pg %} active {% endif %} ">{{pg}}</a>
+
+            {% endfor %}
+
+        </div>
+        {% endif %}
+    <br>
+ </div>
+
+{% endblock %}
+
